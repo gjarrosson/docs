@@ -1,0 +1,77 @@
+---
+title: "How YC Application Coach Uses Your Project Context"
+sidebarTitle: "Evidence & Context"
+description: "The coach pulls context from your local files — README, analytics, pitch deck, customer notes — to ground every answer in real evidence from your project."
+---
+
+Asking a general AI to help with your YC application gives you startup-flavored filler. Answers that use the right words but contain no specific evidence from your actual company. YC Application Coach works differently: it reads your project files. Before the first question, it surfaces your README, your analytics exports, your pitch documents, and whatever else you've built up in your repository — so that when it asks "how do you know people need this?", it's already looking at your customer interview notes, not waiting for you to summarize them.
+
+## How the context script works
+
+When you start a session, the skill automatically runs `scripts/prepare_yc_context.py` against your local project directory. The script:
+
+- Requires **Python 3.10 or later** with no external dependencies
+- Reads your project directory without sending any content to a remote server
+- Surfaces relevant files and passes them to the coach as session context
+- Runs silently in the background — you don't need to do anything to trigger it
+
+If you want to run it manually ahead of a session to verify what it surfaces, use:
+
+```bash
+python .claude/skills/yc-application-coach/scripts/prepare_yc_context.py
+```
+
+If the script isn't present or can't run in your environment, the coach will ask you to paste your README and a brief product description directly.
+
+## What the coach asks for during coaching
+
+Even with the context script running, the coach will ask you to pull specific evidence for each question. Know where these live in your project before your session:
+
+<CardGroup cols={2}>
+  <Card title="README and product docs" icon="file-lines">
+    The coach references your README throughout the session. Have relevant sections ready to paste if it asks for a specific part — for example, the section that describes your core use case or your current feature set.
+  </Card>
+
+  <Card title="Analytics exports" icon="chart-bar">
+    CSV, JSON, or screenshots from your analytics tool. The coach specifically wants numbers with time periods attached: active users this week, retention at 30 days, month-over-month growth rate. Raw exports are fine — paste the key rows or figures.
+  </Card>
+
+  <Card title="Git log" icon="code-branch">
+    What you actually shipped in the last 90 days is more credible than what you say you've built. Run `git log --oneline --since="90 days ago"` before your session and have it ready for the Progress section.
+  </Card>
+
+  <Card title="Customer interview notes" icon="users">
+    Discovery call notes, user interview transcripts, support tickets, or any doc where a real customer said something in their own words. The coach uses these to push back on "we believe" language — an actual user quote is evidence; your belief is not.
+  </Card>
+
+  <Card title="Pitch deck" icon="presentation-screen">
+    If you have a pitch deck or pitch narrative, the relevant slides (market size, product, traction) often contain the most compact version of your story. Paste the text from key slides when the coach asks about those areas.
+  </Card>
+
+  <Card title="LOIs, contracts, revenue records" icon="file-contract">
+    Any written signal of commercial intent or actual revenue. Letters of intent, signed contracts, Stripe exports, invoice records. These are the strongest possible evidence in the Traction and Monetization sections.
+  </Card>
+</CardGroup>
+
+## The evidence standard
+
+Every substantive claim in your application must trace back to something checkable. Not something you believe, not something you plan to verify — something you can point to right now.
+
+The coach applies this standard question by question. When you make a claim, it asks for the source. When you don't have a source, it doesn't ask you to invent one — it helps you state the gap honestly.
+
+"We launched in March and don't have 30-day retention data yet because our oldest cohort is only three weeks old" is a real answer. "Our retention is strong" with no data behind it is not. YC partners have read enough applications to know which one is which.
+
+If you don't have evidence for something, be direct about it. The coach will help you:
+1. State what you do have instead — qualitative signal, behavioral observation, anecdotal feedback
+2. Name the gap clearly in your answer rather than papering over it
+3. Explain why the gap exists and what you're doing to close it
+
+<Tip>
+  If you don't have data for something, say so clearly in your answer. "We launched [date] and don't have retention data yet because we've only had users for [N] weeks" is more credible than an answer that never mentions retention at all. Reviewers notice what's absent. Naming the gap honestly signals that you know what matters and why it's missing — which is very different from hoping no one asks.
+</Tip>
+
+## Privacy
+
+<Info>
+  Everything stays local. The context script reads your project files on your machine and passes relevant content to the coach within your Claude session. No content is sent to Lobster Capital or stored outside your machine. Your analytics, customer notes, revenue records, and pitch documents never leave your local environment.
+</Info>

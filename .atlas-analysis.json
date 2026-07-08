@@ -1,0 +1,81 @@
+{
+  "projectType": "cli-tool",
+  "projectName": "YC Application Coach",
+  "projectDescription": "An AI-powered coaching tool that helps founders write stronger Y Combinator applications by demanding specific evidence and pushing back on vague claims — available as a Claude Code skill or MCP server.",
+  "theme": "almond",
+  "primaryColor": "#fc681d",
+  "lightColor": "#fcb48c",
+  "darkColor": "#9b2e1e",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "what-to-prepare"
+            ]
+          },
+          {
+            "group": "Installation",
+            "pages": [
+              "installation/claude-code-skill",
+              "installation/mcp-server"
+            ]
+          },
+          {
+            "group": "How It Works",
+            "pages": [
+              "how-it-works/coaching-session",
+              "how-it-works/question-sequence",
+              "how-it-works/evidence-and-context",
+              "how-it-works/draft-output"
+            ]
+          },
+          {
+            "group": "YC Application Guide",
+            "pages": [
+              "yc-guide/company-description",
+              "yc-guide/product-description",
+              "yc-guide/team",
+              "yc-guide/progress-and-traction",
+              "yc-guide/idea-and-competitors",
+              "yc-guide/monetization",
+              "yc-guide/equity-and-logistics"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/common-mistakes",
+              "reference/strong-answer-patterns",
+              "reference/faq"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "8-step per-question coaching protocol that demands evidence and pushes back on vague claims",
+    "Automatic project context gathering (README, pitch deck, analytics, customer notes) via prepare_yc_context.py",
+    "Covers all 11 sections of the YC application in a defined coaching sequence",
+    "Hard refusal to generate answers — preserves founder voice throughout",
+    "Available as a Claude Code skill (local) or MCP server for Claude.ai, ChatGPT, Cursor, and other MCP clients",
+    "Outputs a complete yc-application-draft.md file ready to paste into YC's form",
+    "Built on patterns from hundreds of real YC applications reviewed by YC alumni via YC Roaster",
+    "Fully offline — no application content leaves your machine"
+  ],
+  "publicApiSurface": [
+    "Claude Code skill: trigger phrases like 'Help me with my YC application' or 'I'm applying to YC W27'",
+    "MCP server package: @ycroaster/mcp v0.3.0",
+    "MCP server binary: ycroaster-mcp (dist/stdio.js)",
+    "Context script: scripts/prepare_yc_context.py (Python 3.10+, no external deps)",
+    "Output file: yc-application-draft.md (generated at project root)",
+    "Installation path: .claude/skills/yc-application-coach/",
+    "MCP transport: stdio (local) + Cloudflare Workers HTTP (remote)"
+  ]
+}

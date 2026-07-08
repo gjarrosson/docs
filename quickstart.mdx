@@ -1,47 +1,97 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with YC Application Coach in Minutes"
+sidebarTitle: "Quickstart"
+description: "Install YC Application Coach as a Claude Code skill or MCP server and run your first evidence-backed coaching session in under 5 minutes."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+YC Application Coach is available in two forms: a Claude Code skill that lives inside your project repo, and an MCP server package (`@ycroaster/mcp`) that works with Claude.ai, ChatGPT, Cursor, and any other MCP-aware client. Both give you the same evidence-demanding coaching experience. Choose the one that fits your workflow.
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+## Install and trigger
 
-## Prerequisites
+<Tabs>
+  <Tab title="Claude Code Skill">
+    The Claude Code skill lives in your project's `.claude/skills/` directory. Install it by cloning the repo directly into that folder from your project root.
 
-Before you begin, you must have:
+    <Steps>
+      <Step title="Clone the skill into your project">
+        Run this from the root of the project you're applying to YC with:
 
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
+        ```bash
+        git clone https://github.com/gjarrosson/yc-roaster-application-coach .claude/skills/yc-application-coach
+        ```
 
-## Get started
+        If you prefer to copy files manually:
 
-<Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+        ```bash
+        mkdir -p .claude/skills
+        cp -r path/to/yc-application-coach .claude/skills/
+        ```
+      </Step>
+      <Step title="Open Claude Code in your project directory">
+        Launch Claude Code from the same project root where you installed the skill. The skill is scoped to that directory — it reads your local files to gather context.
+      </Step>
+      <Step title="Trigger the coaching session">
+        Say one of the following in Claude Code to activate the skill:
 
-    ```bash
-    npm install your-package
-    ```
-  </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+        > "Help me with my YC application"
 
-    ```bash
-    your-cli init
-    ```
-  </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
+        or
 
-    ```bash
-    your-cli start
-    ```
-  </Step>
-</Steps>
+        > "I'm applying to YC W27, walk me through it"
+
+        Claude will detect the skill and begin the session automatically.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="MCP Server">
+    The MCP server package (`@ycroaster/mcp`) exposes the same coaching logic to any MCP-compatible client, including Claude.ai, ChatGPT, and Cursor.
+
+    <Steps>
+      <Step title="Run the MCP server">
+        The fastest way is to run it directly with `npx` — no install required:
+
+        ```bash
+        npx @ycroaster/mcp
+        ```
+
+        Or install it globally if you plan to use it across multiple projects:
+
+        ```bash
+        npm install -g @ycroaster/mcp
+        ```
+      </Step>
+      <Step title="Connect your MCP client">
+        Add the server to your MCP client's configuration. The exact step varies by client — refer to your client's MCP setup docs for where to register a new server. Point it at the running `@ycroaster/mcp` process.
+      </Step>
+      <Step title="Start a session">
+        Once connected, trigger the coach with the same phrases you would use in Claude Code:
+
+        > "Help me with my YC application"
+
+        or
+
+        > "I'm applying to YC W27, walk me through it"
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## What to expect in your first session
+
+When you trigger the coach, here is what happens next.
+
+**Context gathering.** The coach runs `scripts/prepare_yc_context.py` automatically to read your project — README, pitch deck, analytics files, customer notes, and any other relevant docs it can find. This takes a few seconds. The more material you have in the repo, the richer the context it surfaces.
+
+**Choosing where to start.** The coach will ask which section you want to tackle first, or whether you want to go through all 11 sections in order. If you're starting fresh, going in order is the right call. If you have a specific weak spot — say, the traction section — jump straight there.
+
+**The coaching loop.** For each section, the coach shows you the exact YC question, asks for your draft answer, identifies the single biggest gap, and asks one targeted probing question. You answer. It pushes back if your response is still vague. Once your answer is sharp and backed by evidence, it produces a refined version in your voice and asks you to confirm it before moving on.
+
+**The output.** When you finish the sections you want to work through, the coach compiles everything into `yc-application-draft.md` at your project root. That file is yours — iterate on it, read it out loud, and paste the answers into YC's official form when you're ready.
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  Before you start your first session, spend 10 minutes pulling together your
+  README, any pitch materials, and any analytics exports or customer notes you
+  have in the project. The coach can work with just a README, but the coaching
+  gets sharper the more real evidence you bring in. See
+  [What to Prepare](/what-to-prepare) for a full checklist.
 </Tip>

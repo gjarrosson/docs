@@ -1,0 +1,94 @@
+---
+title: "YC Application Coach FAQ"
+sidebarTitle: "FAQ"
+description: "Answers to common questions about YC Application Coach: privacy, guarantees, accuracy of question wording, time commitment, and how it compares to asking ChatGPT."
+---
+
+Common questions about using YC Application Coach — what it does, what it doesn't do, how your data is handled, and how it fits into your overall application process.
+
+<AccordionGroup>
+
+  <Accordion title="Does this guarantee I'll get into YC?">
+    No. Nothing does.
+
+    YC acceptance rates are around 1% and depend on factors no application can fix: team, traction, timing, and market. If your traction is thin, your market is small, or your co-founder situation is complicated, the coach can't change those things.
+
+    What it can do is help you avoid the avoidable mistakes that get otherwise strong companies rejected. A good application won't make a mediocre company look fundable, but a weak application can make a fundable company look mediocre. That's the gap this tool is built to close.
+  </Accordion>
+
+  <Accordion title="Is my application data private?">
+    Yes. Your application content stays entirely on your machine.
+
+    The Claude Code skill is offline-only — it runs locally and never transmits your application content to Lobster Capital or any external service. The MCP server operates locally via stdio and follows the same model. Nothing you write during a coaching session is stored outside your project directory.
+
+    Submitting your application to [YC Roaster](https://ycroaster.com) for human feedback is a separate decision with its own flow. That step is opt-in and completely independent of using this tool.
+  </Accordion>
+
+  <Accordion title="Are the YC question wordings up to date?">
+    The question wording in the coach is based on YC's current application form at the time this tool was built. YC adjusts wording between batches — sometimes significantly — so the phrasing may not match exactly what you see when you open the live form.
+
+    Always verify against the live YC application before submitting. Use the coach to prepare your thinking and draft your answers, then check your answers against the actual questions you'll be answering. The underlying principles don't change between batches; the exact wording sometimes does.
+  </Accordion>
+
+  <Accordion title="Why won't it just write the application for me?">
+    Because a generated application will hurt your chances more than help them.
+
+    YC partners read thousands of applications per batch. Generated answers have a recognizable texture — polished in a generic way, technically correct, startup-jargon-fluent, but missing the specific details and voice that come from a founder who actually built something and lived the problem. Applications that read as AI-generated get deprioritized before you ever reach an interview.
+
+    The second problem is the interview itself. If you get an interview, you'll be asked to elaborate on everything you wrote. If you didn't write it, you'll sound like you're reading your own application for the first time. That ends interviews quickly.
+
+    The coach helps you say what you actually mean, with the specifics and the voice that makes reviewers lean in. You write it — the coach helps you write it better than you would on your own.
+  </Accordion>
+
+  <Accordion title="How is this different from just asking ChatGPT directly?">
+    Three things make it different from a general-purpose LLM:
+
+    **It uses your actual context.** Your README, your pitch deck, your analytics exports, your customer interview notes, your code — the coach grounds every answer in real evidence from your project, not in generalities about startups.
+
+    **It's built on real YC application data.** The reference material is distilled from hundreds of YC applications reviewed by actual YC alumni through YC Roaster. It knows the difference between answers that get interviews and answers that look polished but get rejected.
+
+    **It pushes back.** A general-purpose LLM will help you sound confident and articulate. This tool is tuned to demand specifics, kill hedging language, and call out claims you can't defend in person. Being helped to sound polished is the opposite of what you need.
+  </Accordion>
+
+  <Accordion title="How long does a coaching session take?">
+    Plan for **10–20 minutes per section** if you engage seriously with the probing questions — meaning you push back, provide real evidence, and revise until the answer is tight.
+
+    A full first pass through all 11 sections typically takes **60–120 minutes**. Most founders don't finish in one sitting, and that's fine. You can stop anywhere and resume in a later session without losing progress.
+
+    If you move through sections quickly without much pushback, that's usually a sign the answers aren't being pushed hard enough — not that they're already strong.
+  </Accordion>
+
+  <Accordion title="Do I need to complete all 11 sections in one session?">
+    No. You can start with any section and work in whatever order makes sense for where your thinking is strongest. You can stop mid-session and pick up later.
+
+    At the end of a full pass, all confirmed answers compile into a `yc-application-draft.md` file in your project root. You can iterate on that file across as many sessions as you want before you're ready to paste answers into the live YC form.
+  </Accordion>
+
+  <Accordion title="What if I don't have analytics or traction data?">
+    The coach works with what you have, and it doesn't expect every founder to have the same data.
+
+    If you don't have retention numbers, it helps you describe the qualitative signal you do have — specific user behaviors, verbatim feedback, early commitment signals. If you're pre-launch, it helps you articulate what you've learned from customer discovery and what demand evidence you've collected.
+
+    The important thing is not to paper over gaps with vague confidence. "We don't have retention data yet because we launched two weeks ago — but 3 of our first 5 users messaged us unprompted asking about new features" is a better answer than "our retention is strong." The coach helps you find the honest, specific version of wherever you are.
+
+    Pre-traction companies get into YC. What they need is honest, specific answers — not metrics they don't have yet.
+  </Accordion>
+
+  <Accordion title="Is this affiliated with Y Combinator?">
+    No. YC Application Coach is built by Lobster Capital, the team behind [YC Roaster](https://ycroaster.com).
+
+    Lobster Capital is a seed-stage venture firm focused on Y Combinator companies. This tool was built to give pre-YC founders the kind of preparation help they usually can't get until after they're already in a batch. It is not affiliated with, endorsed by, or connected to Y Combinator in any way.
+  </Accordion>
+
+  <Accordion title="What's YC Roaster and how is it related?">
+    [YC Roaster](https://ycroaster.com) is a website by Lobster Capital where you can submit your YC application draft and get free feedback from an actual YC alum.
+
+    The Application Coach and YC Roaster are complementary but separate:
+
+    - **YC Application Coach** is the tool you use to prepare your draft — working through each section, strengthening your answers, and producing a polished `yc-application-draft.md` file.
+    - **YC Roaster** is the human second-opinion step — submitting that draft to get a real person's read on it before you submit to YC.
+
+    The recommended flow is to use the coach first, then submit to YC Roaster when your draft is solid. The coach is available 24/7 and has unlimited patience; YC Roaster is the check from someone who has read the real thing at scale.
+  </Accordion>
+
+</AccordionGroup>

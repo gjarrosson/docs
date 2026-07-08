@@ -1,0 +1,94 @@
+---
+title: "How a YC Application Coaching Session Works"
+sidebarTitle: "Session Flow"
+description: "Each session follows a structured flow: context gathering, section-by-section coaching, and a final compiled draft. Plan 60–120 minutes for a full pass."
+---
+
+A coaching session is a structured working session, not a chat. You bring your drafts and your evidence; the coach finds the gaps, asks one uncomfortable question at a time, and pushes you to produce answers that are specific, honest, and defensible in a YC interview. By the end, every confirmed answer is compiled into a single draft file you own. Here's what to expect from start to finish.
+
+## Session flow
+
+<Steps>
+  <Step title="Context gathering">
+    When you start a session, the skill automatically runs `scripts/prepare_yc_context.py` against your local project. It surfaces your README, pitch documents, analytics exports, and recently edited files — giving the coach real material to reference rather than asking you to describe your product from scratch. If the script can't run, the coach will ask you to paste your README and a brief product description directly.
+  </Step>
+
+  <Step title="Choose your section">
+    The coach asks which section you want to work on first. You can pick any of the 11 sections to jump straight to what matters most right now, or go through all of them in the recommended order from Company Description through Curious. Your confirmed answers are saved as you go, so you can stop after one section and pick up later.
+  </Step>
+
+  <Step title="Per-question coaching">
+    For each question, the coach follows an 8-step protocol:
+
+    1. States the exact YC question text
+    2. Asks for your current draft — rough is fine
+    3. Identifies the single biggest gap in your answer
+    4. Asks one targeted probing question about that gap
+    5. Pushes back if your response is still vague or claim-heavy
+    6. Asks you to pull supporting evidence from your local project files
+    7. Produces a refined version of your answer — in your voice, shorter and sharper
+    8. Asks you to confirm before moving on
+
+    You drive the answer. The coach sharpens it.
+  </Step>
+
+  <Step title="Refinement">
+    Once the coach has your draft, your probe responses, and your evidence, it produces a tighter version of your answer. Every claim in the refined version traces back to something you said. If a sentence sounds generic or AI-generated, it gets flagged: `[sounds generated — rewrite this in your own words]`. The goal is an answer that sounds like you wrote it — because you did.
+  </Step>
+
+  <Step title="Confirm and lock">
+    Before moving to the next question, the coach asks: "Does this sound like you? Is every claim here something you can defend in a YC interview without notes?" You give explicit confirmation. Anything you're not comfortable defending goes back for another pass.
+  </Step>
+
+  <Step title="Final compilation">
+    When you've finished all the sections you want to work on, the coach compiles every confirmed, refined answer into `yc-application-draft.md` at your project root. The file is yours — you can edit it directly, return to refine sections, and paste answers into the YC application form when you're ready.
+  </Step>
+</Steps>
+
+## Time estimates
+
+Plan **10–20 minutes per section** for a first pass. Some sections (Traction, Team) often go longer because they demand the most evidence. A full 11-section first pass typically takes **60–120 minutes**, depending on how much evidence you have ready and how many rounds of probing each answer needs.
+
+You don't have to complete everything in one sitting. Work on a section, confirm the answer, and come back another time for the rest.
+
+## The one-question rule
+
+The coach asks exactly **one question at a time** and waits for your answer before asking the next one. This is intentional, not a limitation.
+
+Multiple questions let you pick the easiest one and dodge the hard ones. One question tells you what matters most right now. It also mirrors the YC interview format, where partners ask pointed single questions and listen carefully to what you say — and what you avoid saying.
+
+When the coach identifies several weaknesses in your answer, it ranks them by importance, asks about the most critical one first, and works through the rest after you respond.
+
+## When the coach pushes back
+
+Expect a follow-up question any time your answer contains:
+
+- **Unsupported claims** — "we have strong traction" without a number
+- **"We believe" language** — assertion presented as evidence
+- **Plans stated as facts** — "we will" when the question asks what you've done
+- **Vague market claims** — "$50B TAM" without bottom-up math
+- **Anecdotes substituted for patterns** — one user story standing in for a usage trend
+
+When the coach calls one of these out, it names the pattern directly before asking the follow-up: "That's an assertion, not evidence. What shows that?"
+
+## When the coach moves on
+
+The coach accepts your answer and moves to the next question when:
+
+- You give a specific, credible answer backed by evidence
+- Your answer is already sharp and doesn't need refinement
+- You've honestly acknowledged a gap — for example, "we launched [date] and don't have retention data yet because we've only had users for [N] weeks"
+
+Acknowledging a real gap honestly is stronger than papering over it with vague language. The coach will help you name the gap clearly rather than pretend it isn't there.
+
+## After the session
+
+When your draft is ready:
+
+1. **Read the whole draft out loud.** Any sentence that makes you hesitate, or that you couldn't elaborate on in a YC interview without notes, needs more work before you submit.
+2. **Flag anything you can't defend.** That's what you work on next.
+3. **Submit to YC Roaster** at [ycroaster.com](https://ycroaster.com) for free feedback from an actual YC alum. You'll get the same hard pushback you got in the coaching session — from someone who's been through the process.
+
+<Note>
+  The coach will not generate your application for you. If you ask it to "write it for me" or "just fill out the form," it will refuse — and explain why. YC partners read thousands of applications per batch. Generated answers have a recognizable texture: polished in a generic way, but missing the specific details and voice that come from a founder who actually built something. An application that sounds AI-written gets deprioritized before you reach an interview. And if you do get an interview, you'll be asked to elaborate on things you didn't write — and you'll sound like you're reading your own application for the first time. The application needs to sound like you.
+</Note>

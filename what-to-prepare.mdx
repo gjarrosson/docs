@@ -1,0 +1,61 @@
+---
+title: "What to Prepare Before Your Coaching Session"
+sidebarTitle: "Preparation"
+description: "Gather your README, pitch deck, analytics exports, and customer notes before starting. More context means sharper, more credible coached answers."
+---
+
+The coaching session is only as strong as the evidence you bring into it. YC Application Coach doesn't generate answers from thin air — it grounds every probing question and every refined answer in real artifacts from your project. The more context your project contains, the more specific and credible your coached answers will be. You can start with just a README, but you'll get substantially sharper results if you walk in with the full picture.
+
+## Materials to gather
+
+Work through this list before your first session. Not all of these will exist for every company — that's fine. The coach works with whatever is available and flags what's missing so you can address it.
+
+- **README.md or product overview doc.** The single most important input. If your README is thin or out of date, spend 15 minutes sharpening it before you start. The coach reads it at session start and uses it as the baseline for your company description, product, and idea-origin answers.
+
+- **Pitch deck.** Any format works — PDF, markdown, Google Slides export, a narrative doc. If it's in the repo, the context script will surface it. If it lives elsewhere, copy a markdown or text version into the project root before you start.
+
+- **Analytics exports.** Any traction data you have: CSV exports from Stripe, Mixpanel, PostHog, Amplitude, or even a screenshot of your dashboard saved as an image file in the repo. The coach will ask you for specific numbers — having them in a file you can paste from is faster and more accurate than recalling from memory.
+
+- **Customer interview notes or discovery call docs.** Even rough notes count. A short markdown file with three quotes from real users is more useful than a polished summary with no direct evidence. If your notes live in Notion or a Google Doc, copy the relevant sections into a file in the project.
+
+- **LOIs, contracts, or revenue records.** If you have paying customers, early LOIs, or pilot agreements, put copies or summaries where the coach can reference them. These are the strongest possible evidence for your traction and monetization sections.
+
+- **Your actual codebase.** The context script scans recently edited files to understand what you've actually shipped. This matters most for the progress section, where the coach will ask what you built in the last 90 days. Commit your latest work before you start the session.
+
+## How the context script works
+
+At the start of every session, the coach automatically runs `scripts/prepare_yc_context.py` from your project root. The script scans your project directory, surfaces relevant documents and data files, and produces a structured context summary the coach uses throughout the session.
+
+You can also run it manually before you start — useful if you want to check what it finds or add more files before triggering the coach:
+
+```bash
+python .claude/skills/yc-application-coach/scripts/prepare_yc_context.py
+```
+
+The script requires Python 3.10 or later and has no external dependencies. It reads only from your local filesystem and produces no output outside your machine.
+
+<Info>
+  Everything stays local. The context script reads your files on-device and
+  passes the summary directly to the coaching session. No application content,
+  no project files, and no analytics data is sent to Lobster Capital or stored
+  anywhere outside your machine. If you later submit your draft to YC Roaster
+  for human review, that is a separate decision and a separate flow.
+</Info>
+
+## Time to set aside
+
+Plan your session time realistically so you can engage seriously with the probing questions rather than rushing to fill in answers.
+
+- **First full pass through all 11 sections:** 60–120 minutes. The early sections move faster once the coach has your context. The traction, competitors, and monetization sections tend to run longer because they require the most specific evidence.
+
+- **Per-section time, if you engage seriously:** 10–20 minutes. The coaching loop for each question — draft, probe, push, refine, confirm — takes longer when you don't have a strong starting answer. Bring a draft for every section, even a rough one.
+
+- **Subsequent sessions:** Faster. You can resume from `yc-application-draft.md` and work on individual sections without repeating sections you've already locked.
+
+<Tip>
+  Read the YC application form yourself before your first session — not just a
+  summary of it, the actual form. Knowing the exact question wording helps you
+  write answers that respond to what YC is actually asking, not to your
+  paraphrase of it. Question wording can also shift between batches, so always
+  check the live form before submitting.
+</Tip>

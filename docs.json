@@ -1,72 +1,83 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "almond",
+  "name": "YC Roaster",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#fc681d",
+    "light": "#fcb48c",
+    "dark": "#9b2e1e"
   },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
+  "favicon": "https://media.brand.dev/fb028706-d717-43ba-a3e6-f1bfec540356.png",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "https://media.brand.dev/066a6fc5-9c2d-43dc-ac76-d2a02b6a2c39.svg",
+    "dark": "https://media.brand.dev/066a6fc5-9c2d-43dc-ac76-d2a02b6a2c39.svg"
   },
   "navbar": {
     "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
+      { "label": "YC Roaster", "href": "https://ycroaster.com" }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Get Feedback",
+      "href": "https://ycroaster.com"
     }
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "what-to-prepare"
+            ]
+          },
+          {
+            "group": "Installation",
+            "pages": [
+              "installation/claude-code-skill",
+              "installation/mcp-server"
+            ]
+          },
+          {
+            "group": "How It Works",
+            "pages": [
+              "how-it-works/coaching-session",
+              "how-it-works/question-sequence",
+              "how-it-works/evidence-and-context",
+              "how-it-works/draft-output"
+            ]
+          },
+          {
+            "group": "YC Application Guide",
+            "pages": [
+              "yc-guide/company-description",
+              "yc-guide/product-description",
+              "yc-guide/team",
+              "yc-guide/progress-and-traction",
+              "yc-guide/idea-and-competitors",
+              "yc-guide/monetization",
+              "yc-guide/equity-and-logistics"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/common-mistakes",
+              "reference/strong-answer-patterns",
+              "reference/faq"
+            ]
+          }
+        ]
+      }
     ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/gjarrosson/yc-roaster-application-coach"
     }
   }
 }

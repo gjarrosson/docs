@@ -1,0 +1,67 @@
+---
+title: "YC Application Coach: Write a Stronger YC Application"
+sidebarTitle: "Introduction"
+description: "YC Application Coach is a brutal, evidence-demanding coaching tool that helps founders write stronger YC applications — in their own voice."
+---
+
+YC Application Coach is an AI-powered coaching tool built by Lobster Capital — the team behind [YC Roaster](https://ycroaster.com). It walks you through all 11 sections of the Y Combinator application one at a time, grounding every answer in real evidence from your local project files and pushing back on anything vague, hedged, or unsupported. The result is a complete `yc-application-draft.md` in your project root — written in your voice, defensible in a YC interview.
+
+## What it is — and what it isn't
+
+The coach is exactly that: a coach. It asks probing questions, demands specifics, and helps you write better answers than you would on your own. It does not write your application for you.
+
+<Note>
+  If you ask the coach to generate an answer or write a section for you, it will
+  refuse. YC partners read thousands of applications per batch. Generated
+  answers have a recognizable texture — polished but generic, missing the
+  specific details and voice that signal a founder who actually built something.
+  The coach's job is to help you say what you actually mean, with the specifics
+  that make YC partners lean in.
+</Note>
+
+## Why this is different from asking Claude or ChatGPT directly
+
+Three things set YC Application Coach apart from a blank chat window.
+
+**It uses your local context.** At the start of every session, the coach runs a context script that reads your README, pitch deck, analytics exports, customer interview notes, and actual codebase. Every probing question is grounded in real evidence from your project — not in startup-blog generalizations.
+
+**It's built on real YC application data.** The reference material distills patterns from hundreds of YC applications reviewed by real YC alumni through YC Roaster. The coach knows the difference between answers that get interviews and answers that get rejected, and it calls out the weak patterns by name.
+
+**It pushes back.** A generic LLM will help you sound polished. This one is tuned to demand specifics, kill hedging language, and call out claims you can't defend in person. "We believe X" is not evidence. The coach will ask: "What shows that?"
+
+## Get started
+
+<CardGroup cols={2}>
+  <Card
+    title="Quickstart"
+    icon="rocket"
+    href="/quickstart"
+  >
+    Install the coach and run your first session in under 5 minutes.
+  </Card>
+  <Card
+    title="Claude Code Skill"
+    icon="code"
+    href="/installation/claude-code-skill"
+  >
+    Clone the skill into `.claude/skills/` and trigger it from Claude Code.
+  </Card>
+  <Card
+    title="MCP Server"
+    icon="server"
+    href="/installation/mcp-server"
+  >
+    Use `@ycroaster/mcp` with Claude.ai, ChatGPT, Cursor, or any MCP client.
+  </Card>
+  <Card
+    title="YC Application Guide"
+    icon="book"
+    href="/yc-guide/company-description"
+  >
+    Detailed guidance on all 11 YC application sections.
+  </Card>
+</CardGroup>
+
+## After coaching: the human review step
+
+Once you finish your coached draft, the next step is a real human eye. Submit your `yc-application-draft.md` to [YC Roaster](https://ycroaster.com) for free feedback from an actual YC alum. The coach is the preparation. YC Roaster is the second opinion — from someone who has been through the process themselves and knows what a partner reads in the room.

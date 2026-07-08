@@ -1,0 +1,105 @@
+---
+title: "Install YC Application Coach as a Claude Code Skill"
+sidebarTitle: "Claude Code Skill"
+description: "Add YC Application Coach to your project in two commands. Claude detects the skill automatically when you mention your YC application."
+---
+
+A Claude Code skill is a contextual AI capability that lives inside your project and activates automatically when you describe what you want in natural language. Instead of configuring a separate tool or switching context, you just open Claude Code in your project directory and say what you need — Claude detects the skill and starts coaching. This is the recommended installation method for founders who have a codebase, because the skill reads your actual files — your README, pitch deck, analytics exports, and customer notes — and grounds every coaching conversation in real evidence from what you've built.
+
+## Prerequisites
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and authenticated
+- A project directory — your startup's codebase, or even a repo that contains just a README
+- Python 3.10 or higher (no external packages required; used for context gathering at session start)
+
+## Installation
+
+<Steps>
+  <Step title="Clone or copy the skill into your project">
+    From your project's root directory, clone the skill directly into the `.claude/skills/` folder:
+
+    ```bash
+    git clone https://github.com/gjarrosson/yc-roaster-application-coach .claude/skills/yc-application-coach
+    ```
+
+    If you already have the repo downloaded locally, you can copy it instead:
+
+    ```bash
+    mkdir -p .claude/skills
+    cp -r path/to/yc-application-coach .claude/skills/
+    ```
+
+    After this step your project tree should include `.claude/skills/yc-application-coach/SKILL.md`.
+  </Step>
+
+  <Step title="Open your project root in Claude Code">
+    Launch Claude Code and make sure you are working from the root of the project directory where you just installed the skill. The skill is scoped to that directory — Claude will not detect it if you open a different folder.
+  </Step>
+
+  <Step title="Trigger the skill with a natural-language prompt">
+    Start a new conversation and say something like:
+
+    > "Help me with my YC application"
+
+    or
+
+    > "I'm applying to YC W27, walk me through it"
+
+    Claude detects the skill from your message, runs the context script to read your project files, and asks which section you want to start with.
+  </Step>
+</Steps>
+
+## Trigger phrases
+
+The skill activates when your message contains any of the following phrases. You do not need to use exact wording — natural variations work.
+
+| Phrase | Example prompt |
+|---|---|
+| `YC application` | "Let's work on my YC application" |
+| `Y Combinator application` | "I need to finish my Y Combinator application" |
+| `applying to YC` | "I'm applying to YC this batch" |
+| `my YC app` | "Can you review my YC app?" |
+| `YC answers` | "Help me tighten my YC answers" |
+| `help with YC` | "I need help with YC" |
+| `YC form` | "Walk me through the YC form" |
+| `YC batch` | "I'm submitting for the next YC batch" |
+| `YC sections` | "Let's go through the YC sections one by one" |
+| `work on my application` | "I want to work on my application tonight" |
+
+The skill also activates when you reference a specific YC application question by name — for example, mentioning your company description, traction, competitors, or monetization in the context of applying.
+
+<Note>
+  The skill does **not** activate for general questions about Y Combinator, high-level startup advice unrelated to your application, or questions about what YC is. It is scoped specifically to helping you write and refine your own application answers.
+</Note>
+
+## How context is gathered automatically
+
+At the start of every coaching session, the skill runs `scripts/prepare_yc_context.py` from within your project. This script scans your project directory and surfaces:
+
+- Your `README.md` or any product overview document
+- Pitch decks or pitch narratives (PDF, Markdown, or plain text)
+- Analytics exports in CSV or JSON format
+- Customer interview notes or discovery call documents
+- Recently modified files that describe what you've shipped
+
+The script requires Python 3.10 or higher and has no external dependencies — it uses only the standard library. You can also run it manually before a session if you prefer:
+
+```bash
+python .claude/skills/yc-application-coach/scripts/prepare_yc_context.py
+```
+
+If the script cannot run (for example, because Python is not installed), Claude will ask you to paste your README and describe what you've built so far. The coaching still works — it just starts with what you provide directly.
+
+## What the skill produces
+
+When you finish working through your application sections, the skill compiles all your confirmed, refined answers into a single file at your project root:
+
+```
+yc-application-draft.md
+```
+
+You own this file. Iterate on it across multiple sessions, share it with advisors, and paste the final answers into YC's official application form when you're ready to submit.
+
+<Tip>
+  The more project context you have, the sharper the coaching gets. A project with a README, a pitch deck, analytics exports, and customer notes gives the skill real evidence to work with. A project with just a README still works well — the skill will prompt you for specifics as it goes. Either way, plan for 60–120 minutes for a complete first pass through the full application.
+</Tip>
