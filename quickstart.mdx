@@ -1,5 +1,5 @@
 ---
-title: "Get Started with YC Application Coach in Minutes"
+title: "Get Started with YC Application Coach in 5 Minutes"
 sidebarTitle: "Quickstart"
 description: "Install YC Application Coach as a Claude Code skill or MCP server and run your first evidence-backed coaching session in under 5 minutes."
 ---
@@ -44,24 +44,62 @@ YC Application Coach is available in two forms: a Claude Code skill that lives i
     </Steps>
   </Tab>
   <Tab title="MCP Server">
-    The MCP server package (`@ycroaster/mcp`) exposes the same coaching logic to any MCP-compatible client, including Claude.ai, ChatGPT, and Cursor.
+    The MCP server package (`@ycroaster/mcp` v0.3.0) exposes the same coaching logic to any MCP-compatible client, including Claude.ai, ChatGPT, and Cursor. You can connect via the hosted server or run the package locally for full privacy.
 
     <Steps>
-      <Step title="Run the MCP server">
-        The fastest way is to run it directly with `npx` — no install required:
+      <Step title="Choose hosted or local">
+        **Hosted** — no install, works from any MCP client. Add this URL in your client's connector settings:
 
-        ```bash
-        npx @ycroaster/mcp
+        ```
+        https://mcp.ycroaster.com/mcp
         ```
 
-        Or install it globally if you plan to use it across multiple projects:
+        | Client | How |
+        | --- | --- |
+        | Claude.ai | Settings → Connectors → Add custom connector → paste the URL |
+        | Claude Code | `claude mcp add ycroaster https://mcp.ycroaster.com/mcp` |
+        | Cursor | Add to `~/.cursor/mcp.json` (see next step) |
+
+        **Local stdio** — zero network egress for your draft. Run directly with `npx`:
+
+        ```bash
+        npx -y @ycroaster/mcp
+        ```
+
+        Or install the `ycroaster-mcp` binary globally for repeated use:
 
         ```bash
         npm install -g @ycroaster/mcp
+        ycroaster-mcp
         ```
       </Step>
-      <Step title="Connect your MCP client">
-        Add the server to your MCP client's configuration. The exact step varies by client — refer to your client's MCP setup docs for where to register a new server. Point it at the running `@ycroaster/mcp` process.
+      <Step title="Register the server in your MCP client config">
+        For clients that use a JSON config file (Cursor, VS Code, custom agents), add the local stdio server like this:
+
+        ```json
+        {
+          "mcpServers": {
+            "ycroaster": {
+              "command": "npx",
+              "args": ["-y", "@ycroaster/mcp"]
+            }
+          }
+        }
+        ```
+
+        For the hosted server in Cursor (`~/.cursor/mcp.json`):
+
+        ```json
+        {
+          "mcpServers": {
+            "ycroaster": {
+              "url": "https://mcp.ycroaster.com/mcp"
+            }
+          }
+        }
+        ```
+
+        For Claude Code with the local build: `claude mcp add ycroaster -- npx -y @ycroaster/mcp`
       </Step>
       <Step title="Start a session">
         Once connected, trigger the coach with the same phrases you would use in Claude Code:

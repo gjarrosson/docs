@@ -1,5 +1,5 @@
 ---
-title: "Connect YC Application Coach via MCP Server"
+title: "Connect YC Application Coach to Any MCP-Aware Client"
 sidebarTitle: "MCP Server"
 description: "Use @ycroaster/mcp with Claude.ai, ChatGPT, Cursor, or any MCP-aware AI client. Requires Node.js 18+ and takes under 2 minutes to set up."
 ---
@@ -86,15 +86,9 @@ The MCP server brings the same YC application coaching to clients beyond Claude 
 | Node.js | `>=18` |
 | Repository | [github.com/gjarrosson/yc-roaster-application-coach](https://github.com/gjarrosson/yc-roaster-application-coach) |
 
-## Transport modes
+## Transport mode
 
-**stdio (default — recommended for local use)**
-
-The server communicates over standard input/output as a child process of your MCP client. This is the configuration shown above. It is the simplest option, requires no port configuration, and keeps all your application content on your local machine.
-
-**Cloudflare Workers (hosted deployments)**
-
-The package also includes Cloudflare Workers support for teams that need a shared, hosted deployment — for example, if you want a single MCP endpoint accessible from multiple machines or from a cloud-based AI client. See the `wrangler` scripts in the repository for deployment details.
+The server communicates over **stdio** (standard input/output) as a child process of your MCP client. This is the only configuration you need for local use. It requires no port configuration and keeps all your application content on your local machine — nothing is sent over the network.
 
 <Info>
   The MCP server provides the same coaching experience as the Claude Code skill. The same question-by-question protocol, the same pushback on vague claims, the same refusal to generate answers on your behalf, and the same final output format — a complete `yc-application-draft.md` with all your refined answers. The only difference is how the tool is invoked: through an MCP client rather than directly inside Claude Code.
